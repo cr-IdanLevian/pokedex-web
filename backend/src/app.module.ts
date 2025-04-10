@@ -26,6 +26,10 @@ const __DEV__ = process.env.NODE_ENV === 'development';
         database: process.env.DB_NAME,
         autoLoadEntities: true,
         synchronize: __DEV__,
+        ssl: {
+          rejectUnauthorized: false,
+        }, // 👈 Required for Render-hosted PostgreSQL
+
       }),
     }),
     RedisCacheModule,
