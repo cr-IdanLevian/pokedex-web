@@ -7,16 +7,16 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  @ApiOperation({ summary: 'Health check for render.com uptime pings' })
+  @ApiOperation({ summary: 'Health check for uptime' })
   @ApiResponse({
     status: 200,
-    description: 'Returns a greeting string or status message',
+    description: 'Returns a basic uptime response',
     schema: {
-      type: 'string',
-      example: 'Hello World!',
+      type: 'object',
+      example: { message: 'pong' },
     },
   })
-  getHello(): string {
-    return this.appService.getHello();
+  healthCheck(): { message: string } {
+    return { message: 'pong' };
   }
 }
