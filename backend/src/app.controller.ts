@@ -6,8 +6,8 @@ import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  @ApiOperation({ summary: 'Health check for uptime' })
+  @Get('ping')
+  @ApiOperation({ summary: 'Health check for uptime (Render/UptimeRobot)' })
   @ApiResponse({
     status: 200,
     description: 'Returns a basic uptime response',
